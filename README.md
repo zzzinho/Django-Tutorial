@@ -1,4 +1,5 @@
 # Djang-tutoral
+https://docs.djangoproject.com/ko/3.0/intro/tutorial01/
 
 start: 2020.03.26
 
