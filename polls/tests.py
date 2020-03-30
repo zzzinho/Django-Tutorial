@@ -90,7 +90,7 @@ class QuestionDetailViewTests(TestCase):
         show 404 page if question is in future
         '''
         future_quesion = create_question(question_text='Future question.', days=5)
-        url = reverse('polls:detail', args=(future_quesion.id))
+        url = reverse('polls:detail', args=(future_quesion.id,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
     
@@ -99,6 +99,6 @@ class QuestionDetailViewTests(TestCase):
         show question's text if question is in past
         '''
         past_question = create_question(question_text='Past question.', days=-5)
-        url = reverse('polls:detail', args=(past_question.id))
+        url = reverse('polls:detail', args=(past_question.id,))
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
